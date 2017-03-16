@@ -1,0 +1,123 @@
+\documentclass[CJK,notheorems,mathserif,table]{beamer}
+\useoutertheme[height=0.1\textwidth,width=0.15\textwidth,hideothersubsections]{sidebar}
+\usecolortheme{whale}      % Outer color themes, 其他选择: whale, seahorse, dolphin . 换一个编译看看有什么不同.
+\usecolortheme{orchid}     % Inner color themes, 其他选择: lily, orchid
+\useinnertheme[shadow]{rounded} % 对 box 的设置: 圆角、有阴影.
+\setbeamercolor{sidebar}{bg=blue!50} % sidebar的颜色, 50%的蓝色.
+%\setbeamercolor{background canvas}{bg=blue!9} % 背景色, 9%的蓝色. 去掉下一行, 试一试这个.
+\setbeamertemplate{background canvas}[vertical shading][bottom=white,top=structure.fg!25] %%背景色, 上25%的蓝, 过渡到下白.
+\usefonttheme{serif}  % 字体. 个人偏好有轮廓的字体. 去掉这个设置编译, 就看到不同了.
+\setbeamertemplate{navigation symbols}{}   %% 去掉页面下方默认的导航条.
+%%------------------------常用宏包---------------------------------------------------------------------
+%%注意, beamer 会默认使用下列宏包: amsthm, graphicx, hyperref, color, xcolor, 等等
+\usepackage{CJK}
+\usepackage{subfigure} %%图形或表格并排排列
+\usepackage{xmpmulti}  %%支持文中的 \multiinclude 等命令, 使 mp 文件逐帧出现. 具体讨论见 beamer 手册.
+\usepackage{colortbl,dcolumn}     %% 彩色表格
+\graphicspath{{figures/}}         %% 图片路径. 本文的图片都放在这个文件夹里了.
+\DeclareGraphicsRule{*}{mps}{*}{} %% 使 pdflatex 可以纳入 metapost 做的图片.
+
+%\logo{\includegraphics[height=0.09\textwidth]{whu.1}}%% 武大校徽, MetaPost 文件.
+
+\renewcommand{\raggedright}{\leftskip=0pt \rightskip=0pt plus 0cm}
+\raggedright %% 中文对齐
+
+\def\hilite<#1>{\temporal<#1>{\color{blue!35}}{\color{magenta}}{\color{blue!75}}}
+%% 自定义命令, 源自 beamer_guide. item 逐步显示时, 使已经出现的item、正在显示的item、将要出现的item 呈现不同颜色.
+
+\newcolumntype{H}{>{\columncolor{blue!20}}c!{\vrule}}
+\newcolumntype{H}{>{\columncolor{blue!20}}c}  %% 表格设置
+%==================================参考文献==============================================================
+\newcommand{\upcite}[1]{\textsuperscript{\cite{#1}}}  %自定义命令\upcite, 使参考文献引用以上标出现
+\bibliographystyle{plain}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%重定义字体、字号命令 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\songti}{\CJKfamily{song}}        % 宋体
+\newcommand{\fangsong}{\CJKfamily{fs}}        % 仿宋体
+\newcommand{\kaishu}{\CJKfamily{kai}}         % 楷体
+\newcommand{\heiti}{\CJKfamily{hei}}          % 黑体
+\newcommand{\lishu}{\CJKfamily{li}}           % 隶书
+\newcommand{\youyuang}{\CJKfamily{you}}       % 幼圆
+\newcommand{\sihao}{\fontsize{14pt}{\baselineskip}\selectfont}      % 字号设置
+\newcommand{\xiaosihao}{\fontsize{12pt}{\baselineskip}\selectfont}  % 字号设置
+\newcommand{\wuhao}{\fontsize{10.5pt}{\baselineskip}\selectfont}    % 字号设置
+\newcommand{\xiaowuhao}{\fontsize{9pt}{\baselineskip}\selectfont}   % 字号设置
+\newcommand{\liuhao}{\fontsize{7.875pt}{\baselineskip}\selectfont}  % 字号设置
+\newcommand{\qihao}{\fontsize{5.25pt}{\baselineskip}\selectfont}    % 字号设置
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\la{\lambda}
+\def\bfta{{\bf \theta}}
+\def\Ta{{\Theta}}
+\def\ta{{\theta}}
+\def\y1n{{Y_1,\cdots, Y_n}}
+\def\x1n{{X_1,\cdots, X_n}}
+\def\f12{{\frac{1}{2}}}
+\def\Sig{{\Sigma}}
+\def\barx{{\bar{X}}}
+\def\var{{\mbox{Var}}}
+
+\def\v#1{\stackrel{#1}{\longrightarrow}}
+%----------------------------------------------------
+\newcommand{\sumx}[1]{\sum\limits_{i=1}^n {#1}_i}
+\newcommand{\sumn}[1]{\sum\limits_{#1=1}^n}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+  \begin{CJK*}{GBK}{kai}
+%%----------------------- Theorems ---------------------------------------------------------------------
+\newtheorem{theorem}{定理}
+%\newtheorem{definition}{定义}
+\newtheorem{df}{定义}
+\newtheorem{lemma}{引理}
+\newtheorem{corollary}{推论}
+\newtheorem{proposition}{性质}
+\newtheorem{example}{例}
+\newtheorem{remark}{注}
+
+\renewcommand\figurename{\rm 图}
+\renewcommand\tablename{\bf 表}
+%%----------------------------------------------------------------------------------------------------
+    \title{\heiti 数理统计}
+    \author[\textcolor{white}{\songti 作者~刘妍岩}]{\songti 作者~~\textcolor{olive}{刘妍岩}}
+    \institute{\wuhao \lishu \textcolor{violet}{武汉大学~~数学与统计学院 }}
+    \date{\today}
+    \frame{ \titlepage }
+%%---------------------------------------------------------------------------------------------------
+    \section*{目录}
+    \frame{\frametitle{目录}\tableofcontents}
+%%===================================================================================================
+
+%%===================================================================================================
+\section{参数估计}
+\section{评价估计量的标准}
+%--------------------------------------------
+%\section{第三章：充分统计量和完备统计量}
+%%---------------------------------------------------------------------------------------------------
+\subsection{无偏性和有效性}
+      \section{R介绍}
+      \frame{
+         \frametitle{S与R}
+
+         \begin{itemize}
+         \item
+         R有强大统计分析与作图功能的软件系统，在GNU协议下免费发行
+         \item R可以看作Bell实验室开发的S语言的一种实现或形式
+         \item 可以将R和S-PLUS看作S语言的两种形式
+         \end{itemize}
+      }
+%-------------------------------------------------------------------
+
+      \frame{
+         \frametitle{R的特点}
+
+         \begin{itemize}
+         \item 免费
+         \item 浮点运算功能强大: 同MTLAB一样不需编译就可以执行代码
+         \item 帮助功能完善: 随软件所附pdf或html帮助文件可以通过help命令打开并了解
+         \item 作图功能强大
+         \item 统计分析能力突出: 内嵌许多实用的统计分析函数,
+         统计分析结果可以直接显示出来
+         \end{itemize}
+      }
+ \end{CJK*}
+\end{document}
+
+

@@ -1,0 +1,219 @@
+\documentclass[12pt,openany,oneside,CJK]{cctbook}
+\usepackage{amsfonts}
+\usepackage{amsmath, amsfonts, latexsym, amsthm, amsxtra, amssymb}
+\usepackage{graphicx}
+\allowdisplaybreaks
+%\pagestyle{plain}
+
+
+\textwidth=145mm \textheight=215mm \topmargin=10mm
+\setlength{\parindent}{2\ccwd}          %段落首行缩进量 \ccwd 表示一个汉字的宽度
+\setlength{\parskip}{3pt plus1pt minus2pt}  %段落之间的竖直距离
+\renewcommand{\baselinestretch}{1.6}
+\evensidemargin=0pt
+\oddsidemargin=25pt
+
+
+\numberwithin{equation}{section}
+\newfont{\msbm}{msbm10 scaled\magstep1}
+%\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\newcommand{\bc}{{\bf C}}
+\newcommand{\cc}{{\bf c}}
+\newcommand{\bs}{{\bf S}}
+\newcommand{\br}{{\bf R}}
+
+\newcommand{\cov}{\mbox{cov}}
+\newcommand{\Var}{\mbox{Var}}
+
+\newcommand{\bk}{{\bf K}}
+\newcommand{\bx}{{\bf x}}
+\newcommand{\by}{{\bf y}}
+\newcommand{\bn}{{\bf N}}
+\newcommand{\ff}{{\bf F}}
+\newcommand{\fnn}{{\bf F}^n}
+
+\def\dps{\displaystyle}
+\def\Om{{\Omega}}
+\def\om{{\omega}}
+\def\p{{\mathcal{P}}}
+\def\f{{\mathcal{F}}}
+\def\R{{\mathcal{R}}}
+\def\B{{\mathcal{B}}}
+\def\A{{\mathcal{A}}}
+\def\C{{\mathcal{C}}}
+\def\O{{\mathcal{O}}}
+
+
+
+\def\ib{\stackrel{{\tiny o}}{B}}
+\def\limi{\stackrel{\underline{\lim}}{{\tiny n}}}
+\def\lims{\stackrel{{\overline{\lim}}}{\tiny{n}}}
+
+\def\spro{\mbox{\msbm n}}
+\def\lra{\longrightarrow}
+\def\ra{\rightarrow}
+\def\e{{\epsilon}}
+\def\la{\lambda}
+\def\Sig{\Sigma}
+\def\sig{\sigma}
+\def\d{{\delta}}
+\def\ta{{\theta}}
+\def\vare{{\varepsilon}}
+
+\def\rv{{随机变量}}
+\def\tjqw{{条件期望}}
+\def\tjqw{{条件概率}}
+\def\kckj{{可测空间}}
+\def\glkj{{(\Om, \f, P)}}
+\def\cdkj#1{{(\Om_{#1}, \f_{#1}, \mu_{#1})}}
+
+\def\prf{{\bf 证明:}}
+\def\iid{{为i.i.d.的随机变量列，}}
+\def\dps{\displaystyle}
+\def\IS{\mathop{\mbox{IS}}\nolimits}
+\def\SS{\mathop{\mbox{S}}\nolimits}
+\def\Aut{\mathop{\mbox{\rm Aut}}\nolimits}
+\def\Hom{\mathop{\mbox{\rm Hom}}\nolimits}
+\def\End{\mathop{\mbox{\rm End}}\nolimits}
+\def\xxmx{{线性模型}}
+\def\pf{{证明}}
+
+\def\dr{{\delta_1,\cdots, \delta_r}}
+\def\y1n{{Y_1,\cdots, Y_n}}
+\def\x1n{{X_1,\cdots, X_n}}
+\def\mnd{{\frac{1}{(2\pi)^{\frac{n}{2}}|\Sigma|^{1/2}}\exp \{-\frac{1}{2}(y-\mu)'\Sigma^{-1}(y-\mu)\}}}
+
+\def\suml{{\sum\limits}}
+\def\prodl{{\prod\limits}}
+\def\cupl{{\bigcup\limits}}
+\def\liml{{\lim\limits}}
+
+\def\capft #1{{\cap_{#1=1}^\infty}}
+\def\cupft #1{{\cup_{#1=1}^\infty}}
+
+\def\invsig{{\Sigma^{-1}}}
+
+\newcommand{\Xn}{{X_n}}
+\newcommand{\Yn}{{Y_n}}
+\newcommand{\limn}{{\lim\limits_{n\to\infty}}}
+\newcommand{\liminfn}{{\liminf\limits_{n\to\infty}}}
+\newcommand{\limsupn}{{\limsup\limits_{n\to\infty}}}
+
+\newcommand{\supn}[2]{\sup\limits_{#1\ge #2}}
+\newcommand{\infn}[2]{\inf\limits_{#1\ge #2}}
+%\newcommand{\cupt}[1]{\cup\limits_{#1=1}^\infty}
+%\newcommand{\capt}[1]{\cap\limits_{#1=1}^\infty}
+
+\newcommand{\xn}[1]{ #1_1, \cdots, #1_n}
+\newcommand{\timn}[1]{\prod\limits_{#1=1}^n}
+\newcommand{\capn}[1]{\cap\limits_{#1=1}^n}
+\newcommand{\enorm}[2]{(E({#1}^#2))^{1/#2}}
+
+
+\newcommand{\ce}[1]{E(#1|\A)}
+\newcommand{\cp}[1]{P(#1|\A)}
+\newcommand{\sumn}[1]{\sum\limits_{#1=1}^n}
+\newcommand{\seqn}[1]{#1_1,#1_2,\cdots}
+
+
+\newtheorem{lem}{引理}[section]
+\newtheorem{pro}{命题}[section]
+\newtheorem{thm}{定理}[section]
+\newtheorem{cor}{推论}[section]
+\newtheorem{df}{定义}[section]
+\newtheorem{remark}{注记}[section]
+\newtheorem{prop}{性质}[section]
+\newtheorem{exm}{例}[section]
+
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\ben}{\begin{eqnarray}}
+\newcommand{\een}{\end{eqnarray}}
+\newcommand{\bet}{\begin{eqnarray*}}
+\newcommand{\eet}{\end{eqnarray*}}
+
+
+
+\begin{document}
+   \frontmatter
+\author{董新宇\thanks{}}
+\date{}
+\begin{center}
+{\zihao{2}\songti
+
+%\makebox[7\ccwd][c]{武\hfill 汉\hfill 大 \hfill 学}\\
+%\vspace{5mm}
+
+ {\huge \makebox[11 \ccwd][c]{线性统计模型 }}
+\vspace{35mm}
+
+\makebox[11 \ccwd][c]{第三章上机作业}
+\vspace{25mm}
+\\
+\makebox[11 \ccwd][c]{统计学}
+\vspace{15mm}
+\makebox[11 \ccwd][c]{董新宇}
+\vspace{15mm}
+\makebox[11 \ccwd][c]{116071910042}
+}
+\end{center}
+
+\tableofcontents
+\newpage
+
+\mainmatter \pagestyle{headings}\headsep10mm
+
+
+\zihao{4} \vspace*{0mm}
+\chapter{3.5}
+
+
+\chapter{3.15}
+\chapter{3.16}
+\chapter{3.19}
+\chapter{3.20}
+概率论是数理统计研究的基础，而又以测度论为基础。本章介绍概率论的基本结果以及重要的结果和工具。本章第一节首先介绍一些基本概念和性质，
+第二节介绍条件概率和条件分布； 第三节介绍大样本理论的结果。
+\section{概率空间}
+随机试验： 试验结果随机的试验；\\
+样本空间$\Omega$：随机试验所有可能结果全体构成的集合；
+\begin{df}
+假设$\f$是$\Om$ 某些子集的全体构成的集合，
+\begin{enumerate}
+  \item [(1)] $\f$ 称为代数（域），如果$\forall A, B \in \f$, $A\bigcup B \in \f$, $A^c\in\f$, 即 $\f$ 关于有限并和余集运算封闭；
+  \item[(2)] $\f$ 称为$\sig-$ 代数（域），如果$\f$ 是代数并且对$A_i\in \f$, $i=1,2,\cdots $, 有$\bigcup A_i\in \f $，
+  即关于可数并和余集运算封闭。
+\end{enumerate}
+\end{df}
+%--------------------------
+\begin{pro}
+\begin{enumerate}
+  \item [(1)] 如果$\f$ 是代数（域），则 $\emptyset\in \f$, $\Om \in \f$. 如果$A_1,\cdots, A_n\in \f$, 则 $\bigcap_{i=1}^n A_i\in \f $;
+  \item[(2)] 如果$\f$ 是$\sig-$ 代数（域），则对任意$A_1,A_2, \cdots \in \f$, 有 $\bigcap_{i=1}^\infty A_i\in \f $.
+\end{enumerate}
+\end{pro}
+%----------
+证明：
+ \begin{enumerate}
+  \item [(1)] 对任意$A\in \f$, $\Om=A\bigcup A^c \in \f$, 因此$\emptyset= \Om ^c \in \f$.\\
+   如果$A_1,\cdots, A_n\in \f$, 则 $\bigcap_{i=1}^n A_i = (\bigcup_{i=1}^n A_i^c)^c\in \f $;
+  \item[(2)]  $(\bigcap_{i=1}^\infty A_i)^c= \bigcup_{i=1}^\infty A_i^c \in \f $.
+\end{enumerate}
+%----------------------------
+如果$\f $ 是$\Om $上的$\sig$-代数, 则称$(\Om, \f) $ 为可测空间。 $\f$ 中的元素在测度论中被称为可测集，在概率统计中被称为事件。
+%---------------------------------------------------------------
+%如果$\f$ 是$\Om$ 上的$\sig$-代数，由于$\Phi\in \Om$,可知$\Om=\emptyset^c\in \f $. 利用DeMorgan 定律，可知：
+%如果$A_i\in \f$, $i=1,2,\cdots $, 则$\bigcap A_i\in \f $.
+
+$\Om$ 上最小的$\sig$-代数是$\f=\{ \emptyset, \Om\}$, 最大的$\sig$-代数是$\Om$ 所有子集构成的集合。
+
+
+
+
+\section*{练习}
+\begin{enumerate}
+  \item \rv $X$ 服从对称分布($P(X\le x)=P(-X\le x)$) 的充要条件是$X$ 的特征函数是实值的。
+  \item  \rv $X>0$, 证明 $E(X)=\int_0^\infty P(X>t)dt$.
+  \end{enumerate}
+
+\end{document}

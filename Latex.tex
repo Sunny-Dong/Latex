@@ -1,0 +1,572 @@
+\documentclass[10pt]{beamer}
+\mode<presentation>
+\usepackage{graphicx}
+%\input{psfig.tex}
+%\input epsf
+%\usepackage{graphics, lscape, amsmath, amsbsy, amstext}
+\usepackage{latexsym, epsfig, verbatim,  amsmath, amssymb, lscape}
+\usetheme{Warsaw} %{Berlin} {Frankfurt}
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{color}
+%\usecolortheme{rose}
+%\usepackage{pgfpages}
+
+\setbeamercovered{transparent}
+\def\softness{0.4}
+\definecolor{softblue}{rgb}{\softness,\softness,1}
+%\setbeamerfont{title}{shape=\itshape,family=\rmfamily}
+\setbeamercolor{title}{fg=red!80!black,bg=red!20!white}
+%\setbeamercolor{headline}{bg=white}
+\setbeamercolor{background canvas}{bg=}
+%\setbeamertemplate{mini frames}[box]
+%{\usebeamercolor{headline}}
+%\setbeamertemplate{headline}[left=white,right=blue]
+%{%
+%\begin{beamercolorbox}{section in head/foot}
+%\vskip2pt\insertnavigation{\paperwidth}\vskip2pt
+%\end{beamercolorbox}%
+%}
+%\setbeamertemplate{footline}[page number]
+\setbeamertemplate{navigation symbols}{}
+\setbeamerfont{smallsize}{size=\small}
+\setbeamerfont{tinysize}{size=\tiny}
+
+\beamertemplatefootpagenumber
+\def\by{\mbox{\boldmath $y$}}
+\def\bv2{\mbox{\boldmath $v^2$}}
+\def\bA{\mbox{\boldmath $A$}}
+\def\bb{\mbox{\boldmath $b$}}
+\def\balpha{\mbox{\boldmath $\alpha$}}
+\def\bM{\mbox{\boldmath $M$}}
+\def\bsigma2{\mbox{\boldmath $\sigma^2$}}
+\def\ba{\mbox{\boldmath $a$}}
+
+\title[Wuhan University 2010]
+{Latex}
+%\subtitle{Ph.D. Dissertation Proposal}
+%\author{\sc LIU Li }
+
+\institute{\sc School of Mathematics and Statistics, \\
+\vspace{0.1cm} \sc Wuhan University }
+
+\date
+%{\small Feburary, 2012}
+
+%\setbeameroption{show notes}
+\begin{document}
+
+
+\frame[plain]{\titlepage}
+
+
+
+\section{Introduction}
+
+
+
+
+
+\section{Introduction to \LaTeX{}}
+\frame{ \frametitle{Why learn \LaTeX{}}
+\begin{itemize}
+
+    \item easy to produce professional-looking mathematical formulas
+
+    \item easy to label equations, citations, figures, tables, etc.
+    to automate cross-referencing
+
+\item can be used on any type of computer
+
+\item freely available
+
+\item {\bf .tex} files are plain text: can be produced with any text
+editor and emailed to co-authors
+
+\item {{\bf .dvi} files produced in \LaTeX{} processing can be viewed
+on screen and printed on almost all kinds of printers\\
+-- {\bf .dvi} is short for {\it device independent}}
+
+\item particularly useful to academics: many journals now want
+electronic submission of manuscripts in \LaTeX{} format
+\end{itemize}
+}
+%----------------------------------------------------------------------------------
+
+\frame{ \frametitle{Where can we find it?}
+\begin{itemize}
+  \item http://www.ctex.org/LaTeX
+  \item editor: Winedit
+\end{itemize}
+
+}
+%----------------------------------------------------------------------------------
+
+\frame{ \frametitle{Using \LaTeX{} in the laboratories}
+
+1. prepare source file: $<$name$>$.tex in text editor
+
+\begin{itemize}
+
+    \item filename extension must be {\bf .tex}
+
+\end{itemize}
+
+2. spell check source file: {\bf ispell $<$name$>$.tex}
+
+3. process source file: {\bf latex $<$name$>$.tex}
+
+4. check that the following files exist: {\bf $<$name$>$.log,
+$<$name$>$.aux, $<$name$>$.dvi}
+
+5. view .dvi file: {\bf ispell xdvi $<$name$>$}
+
+6. convert .dvi file to Postscript (.ps) file
+
+7. view .ps file
+
+8. (optional) convert .ps file to .pdf file
+
+9. (optional) view .pdf file
+
+10. {\bf .dvi} and especially {\bf .ps} and {\bf .pdf} files can be
+large,  so smart to delete them when you're done using them
+
+\begin{itemize}
+
+    \item don't delete the {\bf .tex} file!
+
+\end{itemize}
+}
+
+
+\frame{ \frametitle{Basic \LaTeX}
+\begin{itemize}
+
+    \item {lines that must appear in {\it every} \LaTeX\ document\\
+    {\bf $\backslash$documentclass\{$<$class$>$\}}\\
+    {\bf $\backslash$begin\{document\}}\\
+    {\bf $\backslash$end\{document\}}
+    }
+
+    \item {classes of document producing different default formats\\
+
+    -- article\\
+
+    -- report\\
+
+    -- book\\
+
+    -- slides\\
+
+    -- letter
+    }
+
+
+\end{itemize}
+}
+
+
+\frame[plain]{\frametitle{Sample .tex file}
+
+\% articletemplate.tex
+
+\vskip0.3cm
+
+\noindent $\backslash$documentclass[12pt]\{article\} \% statement
+required; 12 pt
+ opti
+
+ \vskip0.3cm
+
+\noindent \% preamble\\
+ $\backslash$usepackage[dvips]\{graphics\}\\
+ $\backslash$usepackage\{amssymb,amsmath\}\\
+ $\backslash$makeindex
+
+\vskip0.3cm
+
+\noindent\% start document\\
+$\backslash$begin\{document\} \% required
+
+\vskip0.3cm
+
+ \noindent \% article heading
+
+ $\backslash$title\{Example of $\backslash$LaTeX$\backslash$ document\}
+
+ $\backslash$author\{Your Name\}
+
+ $\backslash$date\{$\backslash$today\}
+
+ $\backslash$maketitle
+
+ \vskip0.3cm
+ \noindent \% $\backslash$tablecontents
+
+ \vskip0.3cm
+ $\backslash$begin\{abstract\}\\
+ \hspace{20pt}This article demonstrate usage of basic
+ $\backslash$LaTeX$\backslash$ feature
+
+ $\backslash$end\{abstract\}
+}
+
+
+ \frame{\frametitle{Sample .tex file}
+
+\noindent$\backslash$section\{Automatic paragraph formatting\}
+$\backslash$label\{autoform\}
+
+\vskip0.3cm
+
+This is paragraph 1.
+
+\vskip0.3cm
+
+To start a new paragraph, simply leave one or more blank lines.
+$\backslash$LaTeX$\backslash$ will do the indenting automatically.
+$\backslash$LaTeX$\backslash$ automatically indents the first line
+in all paragraphs except the first in a section.
+
+\vskip0.3cm
+
+It doesn't matter how many spaces \hspace{20pt} you leave in between
+words or where you break lines---\\
+$\backslash$LaTeX$\backslash$ considers a carriage return (where you
+pressed "Enter") as just another space between words.
+
+}
+
+\frame{\frametitle{Sample .tex file}
+
+\noindent$\backslash$section\{Special characters in
+$\backslash$LaTeX\} $\backslash$label\{specchar\}
+
+\vskip0.3cm
+
+The following characters are special codes in $\backslash$LaTeX:
+$\backslash$\&, $\backslash$\$, $\backslash$\~~, $\backslash$\_ ,
+$\backslash$\{, $\backslash$\}, $\backslash$\#, $\backslash$\^~. To
+print one of these characters literally, you must put a backslash
+before it. The backslash itself obviously also is a special
+character.
+
+\vskip0.3cm
+
+
+\noindent$\backslash$subsection\{$\backslash$\%
+\}$\backslash$label\{pcntsign\}
+
+\vskip0.3cm
+
+ The percent sign is used to insert comments in a \{$\backslash$tt
+ .tex\} file. It tells $\backslash$LaTeX$\backslash$ to ignore
+ everything that comes after it on the line.
+
+}
+
+\frame{\frametitle{Sample .tex file}
+
+\noindent$\backslash$section\{Mathematical expressions \}
+$\backslash$label\{mathexp\}
+
+\vskip0.3cm
+
+Mathematical expressions may be included in the text of a paragraph
+by putting a dollar sign at the beginning and the end of each, like
+this: \$e=mc\^~2\$. The special backslash character is printed with
+\$$\backslash$backslash\$.
+
+ \vskip0.3cm
+
+Alternatively, a mathematical expression may be set off on its own
+line like this:
+
+$\backslash$[
+
+\hspace{20pt} e=mc\^~2
+
+$\backslash$]
+
+\vskip0.3cm
+
+Also,  $\backslash$LaTeX$\backslash$ can number equations and keep
+ track of the numbering for you, like this:
+\vskip0.3cm
+
+$\backslash$begin\{equation\}$\backslash$label\{equa\}
+
+\hspace{20pt} e=mc\^~2
+
+$\backslash$end\{equation\}
+
+}
+
+\frame{\frametitle{Sample .tex file}
+
+\noindent {\bf Remark:}\{Some math in \LaTeX:\}
+
+\begin{itemize}
+
+ \item {Greek letters\\
+\hspace{20pt} \$$\backslash$theta\$, \$$\backslash$Theta\$, \$$\backslash$omega\$, and \$$\backslash$Omega\$\\
+\hspace{20pt} $\theta, \Theta, \omega$ and $\Omega$\\
+\hspace{20pt} \$$\backslash$mbox\{$\backslash$boldmath\$
+$\backslash$theta\$, \}\$\\
+\hspace{20pt} $\mbox{\boldmath $\theta$}$
+ }
+
+ \item{
+aligned equations\\
+\hspace{20pt}$\backslash$begin\{eqnarray\}\\
+\hspace{25pt} \{$\backslash$bf y\} \& $\backslash$sim \& N(X
+\$$\backslash$beta\$, \$$\backslash$Sigma\$) $\backslash\backslash$
+\\
+\hspace{20pt} $\backslash$Sigma \&=\&\\
+\hspace{35pt}$\backslash$left[ $\backslash$begin\{array\}\{cc\} \\
+\hspace{45pt} $\backslash$sigma\_\{11\} \& $\backslash$sigma\_\{12\}
+$\backslash\backslash$ \\
+\hspace{45pt} $\backslash$sigma\_\{21\} \&
+$\backslash$sigma\_\{22\}\\
+\hspace{35pt} $\backslash$end\{array\}
+$\backslash$right] \\
+\hspace{20pt}$\backslash$end\{eqnarray\}
+
+\begin{eqnarray}
+{\bf y}&\sim& N(X\beta, \Sigma)\\
+\Sigma &=& \left[
+\begin{array}{cc}
+\sigma_{11} & \sigma_{12}\\
+\sigma_{21} & \sigma_{22}
+\end{array}
+\right]
+\end{eqnarray}
+ }
+
+\item special symbols
+
+\end{itemize}
+}
+
+\frame{\frametitle{Sample .tex file}
+
+
+\hspace{20pt}$\backslash$begin\{eqnarray*\}
+\% asterisk suppresses numbering\\
+\hspace{25pt} y \&=\& $\backslash$sqrt\{ $\backslash$frac\{q\}\{r\}
+\} $\backslash\backslash$
+\\
+\hspace{25pt}i=1, $\backslash$ldots,
+n\\
+\hspace{20pt}$\backslash$end\{eqnarray*\}
+
+\begin{eqnarray*}
+y&=&\sqrt{\frac{q}{r}}\\
+i=1,\ldots,n
+\end{eqnarray*}
+}
+
+\frame{\frametitle{Sample .tex file}
+
+
+{\bf ex.} Try to print:
+
+
+1. $\displaystyle \int_a^b f(x)dx$
+
+2. $\displaystyle \sum\limits_{i,j,k=1}^n x_{i_{j_k}}$
+
+3. $\displaystyle \frac{f(x)}{g(x)}$
+
+4. $\displaystyle \lim\limits_{x\to x_0}=A$
+
+5. $\displaystyle \sqrt[3]{x^4-3x+1}$
+
+6. $\displaystyle \iint_\Omega f(x,y)dxdy$
+
+7. $$\left|\begin{array}{ccc} 1&6&9\\
+7&90&\sin(x)\\
+9&\psi(x)&\log(x) \end{array}\right|$$ }
+
+\frame{\frametitle{Sample .tex file}
+
+\noindent$\backslash$section\{Using labels\}
+$\backslash$label\{labels\}
+
+\vskip0.3cm
+
+Because we have used labels on our sections and equation, we can
+refer to them without having to remember the numbers ourselves. For
+example, equation ($\backslash$ref\{equa\}) appeared in section
+$\backslash$ref\{mathexp\}. This capability is particularly handy
+when we add sections or equations, or reorganize a document.
+}
+
+\frame{\frametitle{Sample .tex file}
+
+\noindent$\backslash$section\{Environments\}
+$\backslash$label\{envi\}
+
+\vskip0.3cm
+
+\noindent$\backslash$subsection\{Lists\}
+
+\vskip0.3cm
+
+ $\backslash$LaTeX$\backslash$ has two list environments:
+
+\vskip0.3cm
+
+\hspace{20pt}$\backslash$begin\{itemize\}\\
+\hspace{30pt}$\backslash$item bulleted lists\\
+\hspace{30pt}$\backslash$item numbered lists\\
+\hspace{40pt}$\backslash$begin\{enumerate\}\\
+\hspace{50pt}$\backslash$item differ from bulleted lists in the environment name\\
+\hspace{50pt}$\backslash$item lists can be nested within lists\\
+\hspace{40pt}$\backslash$end\{enumerate\}\\
+\hspace{20pt}$\backslash$end\{itemize\}\\
+}
+
+\frame{\frametitle{Including graphics files in a \LaTeX\ file}
+
+\begin{itemize}
+
+\item{
+include in the preamble\\
+\hspace{30pt} $\backslash$usepackage[dvips]\{graphics\} }
+
+\item include in the body of the document
+\end{itemize}
+
+\vskip0.3cm
+
+
+\hspace{20pt}$\backslash$begin\{figure\}[$<$h,t,or b$>$]\\
+\hspace{25pt}$\backslash$begin\{center\}\\
+\hspace{30pt}$\backslash$scalebox\{$<$size$>$\}\{$\backslash$includegraphics\{$<$filename.ps or filename.eps$>$\}\}\\
+\hspace{25pt}$\backslash$end\{center\}\\
+\hspace{25pt}$\backslash$caption\{$<$caption$>$\}\\
+\hspace{20pt}$\backslash$end\{figure\}
+
+-- letter h,t and b mean the same as in table
+
+-- $<$size$>$ in {\tt scalebox} command means what multiple of size
+of original figure to use (e.g. 0.5 for half)
+
+-- graphics do not have to be put in {it figure} environment
+
+-- {it figure} environment makes graph "floating" and enables adding
+caption
+}
+
+\frame{\frametitle{Adding a bibliography}
+
+\begin{itemize}
+
+\item built-in bibliographic capabilities in \LaTeX\ enable matching
+references in the body of the text to entries in the bibliography
+
+\item creating the bibliography at the end of the article
+
+\vskip0.3cm
+
+
+\hspace{20pt}$\backslash$begin\{thebibliography\}\{9\}  \% 9 if $<10$ items in biblio\\
+\hspace{30pt}$\backslash$bibitem\{Cow96\}\\
+\hspace{40pt}Cowles,M.K. (1996)\\
+\hspace{40pt}Accelerating Markov chain Monte Carlo convergence\\
+\hspace{40pt}for cumulative-link generalized linear models.\\
+\hspace{40pt}\{$\backslash$em Statistics and Computing\},
+\{$\backslash$bf 6\}, 101--111.\\
+\hspace{20pt}$\backslash$end\{thebibliography\}
+
+\item citing references in the body of the text
+
+\vskip0.3cm
+
+{\it Blocking may solve the problem of slow convergence in a Gibbs
+sampler for a cumulative link GLM as shown in
+$\backslash$cite\{Cow96\}}.
+
+\end{itemize}
+ }
+
+ \frame{\frametitle{creating slide}
+
+Special document class for creating slide presentations with
+Powerpoint-like feature: beamer
+
+\vskip0.3cm
+
+$\backslash$documentclass[cjk]\{beamer\}
+
+$\backslash$usepackage\{CJK\}
+
+$\backslash$usetheme\{Warsaw\}
+
+\vskip0.3cm
+
+$\backslash$begin\{document\}\\
+\hspace{20pt}   $\backslash$begin\{CJK*\}\{GBK\}\{kai\}\\
+\hspace{30pt}       $\backslash$title\{Example Presentation Created
+$\backslash\backslash$ \\
+\hspace{35pt}              with the Beamer
+Package$\backslash\backslash$\}\\
+\hspace{30pt}       $\backslash$author\{Liu Li\}\\
+\hspace{30pt}       $\backslash$date\{$\backslash$today\}
+
+\vskip0.3cm
+
+\hspace{30pt}       $\backslash$frame\{$\backslash$titlepage\}\\
+\hspace{30pt}       $\backslash$section*\{outline\}\\
+\hspace{30pt}       $\backslash$frame\{$\backslash$tableofcontents\}
+
+\vskip0.3cm
+
+\hspace{30pt}       $\backslash$section\{Introduction\}\\
+\hspace{30pt}       $\backslash$subsection\{Overview of the Beamer
+Class\}\\
+\hspace{30pt}       $\backslash$frame\{\\
+\hspace{35pt}          $\backslash$frametitle\{Features of the
+Beamer Class\}
+
+\vskip0.3cm
+
+\hspace{35pt}          $\backslash$begin\{itemize\}\\
+\hspace{35pt}          $\backslash$item$<1->$ Normal
+$\backslash$LaTeX$\backslash$ class\\
+\hspace{35pt}          $\backslash$item$<2->$ Easy overlays\\
+\hspace{35pt}          $\backslash$item$<3->$ No external programs
+needed\\
+\hspace{35pt}          $\backslash$end\{itemize\}\\
+\hspace{30pt}       \}
+
+\vskip0.3cm
+
+\hspace{20pt}    $\backslash$end\{CJK*\}
+
+$\backslash$end\{document\}
+ }
+
+ \frame{\frametitle{creating slide}
+
+\begin{itemize}
+
+\item documentclass must be {\it beamer}, {\it cjk} in the square
+bracket allows Chinese to work
+
+\item contents of slides should be put in $\backslash$frame\{\}, and
+remember: {\tt a frame is a slide, and DON'T put too many contents
+in a slide}
+
+\item $<-1>$ behind item make the slide pause. We can also use
+$\backslash$pause to reach the similar effect.
+
+\item a relative web site: {\it http:// latex-beamer.sourceforge.net}
+
+\end{itemize}
+ }
+
+
+\end{document}
